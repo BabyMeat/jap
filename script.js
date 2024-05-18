@@ -1,9 +1,34 @@
 const words = [
+    // HIRAGANA : .......
+    { character: 'あき', french: 'printemps' },
+    { character: 'あさ', french: 'matin' },
+    { character: 'あたま', french: 'tête' },
+
+    { character: 'いいえ', french: 'non' },
+    { character: 'いえ', french: 'maison' },
+    { character: 'いま', french: 'maintenant' },
+
+    { character: 'うえ', french: 'au dessous' },
+    { character: 'うしろ', french: 'derrière' },
+    { character: 'うた', french: 'chanson' },
+    { character: 'うみのひ', french: 'le jour de la mer' },
+
+    { character: 'えき', french: 'gare' },
+
+    { character: 'おしいれ', french: 'armoire' },
+    { character: 'おとこ', french: 'homme' },
+    { character: 'おまわりさん', french: 'policier' },
+    { character: 'おんな', french: 'femme' },
+
+
+    // KANJI : .........
+    /*
     { character: '日', french: 'soleil' },
     { character: '月', french: 'lune' },
     { character: '山', french: 'montagne' },
     { character: '川', french: 'rivière' },
     { character: '田', french: 'champ' },
+    */
     // Ajoute autant de mots que tu veux
 ];
 
