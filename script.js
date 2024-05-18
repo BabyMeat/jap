@@ -1,27 +1,26 @@
 const words = [
-    // HIRAGANA : .......
+    // HIRAGANA :
     { character: 'あき', french: 'printemps' },
     { character: 'あさ', french: 'matin' },
     { character: 'あたま', french: 'tête' },
-
+    
     { character: 'いいえ', french: 'non' },
     { character: 'いえ', french: 'maison' },
     { character: 'いま', french: 'maintenant' },
-
-    { character: 'うえ', french: 'au dessous' },
+    
+    { character: 'うえ', french: 'haut' },
     { character: 'うしろ', french: 'derrière' },
     { character: 'うた', french: 'chanson' },
-    { character: 'うみのひ', french: 'le jour de la mer' },
-
+    { character: 'うみのひ', french: 'jour de la mer' },
+    
     { character: 'えき', french: 'gare' },
-
+    
     { character: 'おしいれ', french: 'armoire' },
     { character: 'おとこ', french: 'homme' },
     { character: 'おまわりさん', french: 'policier' },
     { character: 'おんな', french: 'femme' },
 
-
-    // KANJI : .........
+    // KANJI :
     /*
     { character: '日', french: 'soleil' },
     { character: '月', french: 'lune' },
@@ -51,8 +50,11 @@ function checkAnswer() {
 }
 
 function nextWord() {
-    currentWordIndex = (currentWordIndex + 1) % words.length;
+    currentWordIndex = Math.floor(Math.random() * words.length);
     displayWord();
 }
 
-document.addEventListener('DOMContentLoaded', displayWord);
+document.addEventListener('DOMContentLoaded', () => {
+    currentWordIndex = Math.floor(Math.random() * words.length);
+    displayWord();
+});
