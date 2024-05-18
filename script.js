@@ -40,11 +40,37 @@ const words = [
     { character: 'きょう', french: 'aujourdhui' },
     { character: 'けっきょく', french: 'finalement' },
     { character: 'きゅうきゅうしゃ', french: 'ambulance' },
-     { character: 'きっぷ', french: 'ticket' },
+    { character: 'きっぷ', french: 'ticket' },
+
     
     
+    { character: 'さかな', french: 'aujourdhui' },
+    { character: 'した', french: 'dessous' },
+    { character: 'すこし', french: 'peu' },
+    { character: 'せんせい', french: 'professeur' },
+    { character: 'そら', french: 'ciel' },
+
+    { character: 'そと', french: 'dehors' },
+    { character: 'しかてつ', french: 'métro' },
+    { character: 'すき', french: 'aimer' },
+    { character: 'した', french: 'derrière' },
+    { character: 'さき', french: 'avant' },
+    { character: 'さら', french: 'assiette' },
+
     
-    { character: 'このは', french: 'feuille' },
+    { character: 'たかい', french: 'cher' },
+    { character: 'ちいさい', french: 'petit' },
+    { character: 'つくえ', french: 'bureau' },
+    { character: 'てんき', french: 'méteo' },
+
+    { character: 'とき', french: 'temps' },
+    { character: 'ちゃい', french: 'thé' },
+    { character: 'たち', french: 'pluriel' },
+    { character: 'ついたち', french: 'premier soleil du mois' },
+    { character: 'とけい', french: 'montre' },
+    { character: 'とうきょう', french: 'Tokyo' },
+    
+
 
     // KANJI :
     /*
