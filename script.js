@@ -43,6 +43,7 @@ function checkAnswer() {
     const userAnswer = document.getElementById('answer').value.toLowerCase();
     const correctAnswer = words[currentWordIndex].french;
     if (userAnswer === correctAnswer) {
+        nextWord();
         document.getElementById('result').innerText = 'Correct!';
     } else {
         document.getElementById('result').innerText = 'Incorrect, essayez encore!';
