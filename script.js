@@ -20,6 +20,32 @@ const words = [
     { character: 'おまわりさん', french: 'policier' },
     { character: 'おんな', french: 'femme' },
 
+
+    
+    { character: 'かう', french: 'acheter' },
+    { character: 'き', french: 'arbre' },
+    { character: 'くつ', french: 'chaussure' },
+    { character: 'けさ', french: 'ce matin' },
+
+    { character: 'こえ', french: 'voix' },
+    { character: 'くつした', french: 'chausette' },
+    { character: 'くち', french: 'bouche' },
+    { character: 'かさ', french: 'parapluie' },
+
+    { character: 'きく', french: 'écouter' },
+    { character: 'かお', french: 'visage' },
+    { character: 'ことし', french: 'cette année' },
+    { character: 'このは', french: 'feuille' },
+
+    { character: 'きょう', french: 'aujourdhui' },
+    { character: 'けっきょく', french: 'finalement' },
+    { character: 'きゅうきゅうしゃ', french: 'ambulance' },
+     { character: 'きっぷ', french: 'ticket' },
+    
+    
+    
+    { character: 'このは', french: 'feuille' },
+
     // KANJI :
     /*
     { character: '日', french: 'soleil' },
