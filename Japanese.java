@@ -14,6 +14,12 @@ public class Japanese {
         vocabulary.put("あたまtaguele","taguele");
     }
 
+    private void stop(){
+        typemachine("Tu pars déjà ? :(");
+        typemachine("à la prochaine !! :3");
+        System.exit(0);
+    }
+
     private void typemachine(String text){
         for(int i = 0; i < text.length(); i++){
             System.out.print(text.charAt(i)); // Utilisation de print pour ne pas ajouter de saut de ligne à chaque caractère
@@ -33,22 +39,36 @@ public class Japanese {
         }
         return quiz;
     }
+
+
+    private void tests(){
+        System.out.println("あたま");
+        System.exit(0);
+    }
     
 
     public Japanese(){
+        // TESTS : ......
+        tests();
+
+
         Scanner sc = new Scanner(System.in);
         typemachine("Salut, es-tu-prêt pour un nouveau entrainement de japonais ? :)))");
         typemachine("(oui - non):");
         String input ="";
-        while(input.compareToIgnoreCase("oui")!=0 && input.compareToIgnoreCase("non")!=0){
+        while(input.compareToIgnoreCase("oui")!=0 && input.compareToIgnoreCase("non")!=0 && input.compareToIgnoreCase("stop")!=0){
             input=sc.nextLine();
-            if(input.compareToIgnoreCase("oui")!=0 && input.compareToIgnoreCase("non")!=0){
+            if(input.compareToIgnoreCase("oui")!=0 && input.compareToIgnoreCase("non")!=0 && input.compareToIgnoreCase("stop")!=0){
                typemachine("Je n'ai pas compris, veux tu entraîner ton japonais ?");
                typemachine("(oui - non):");
             }
             else if (input.compareToIgnoreCase("non")==0) {
                 typemachine("Ça marche, à plus. :C");
                 return;
+            }
+            else if(input.compareToIgnoreCase("stop")==0){
+                typemachine("*stopping*");
+                stop();
             }
         }
         typemachine("C'est Partiiiii !!! :D");
@@ -85,7 +105,6 @@ public class Japanese {
 
     public static void main(String[] args) {
         Japanese jap = new Japanese();
-        // je veux tester 
     }
 
 
