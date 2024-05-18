@@ -69,6 +69,18 @@ const words = [
     { character: 'ついたち', french: 'premier soleil du mois' },
     { character: 'とけい', french: 'montre' },
     { character: 'とうきょう', french: 'Tokyo' },
+
+    
+    { character: 'なつ', french: 'été' },
+    { character: 'にんじゃ', french: 'ninja' },
+
+
+    { character: 'ひる', french: 'midi' },
+    { character: 'ひるごはん', french: 'déjeuner' },
+    { character: 'はな', french: 'fleur' },
+    { character: 'ふゆ', french: 'hiver' },
+    { character: 'はる', french: 'automne' },
+    { character: 'ぱん', french: 'pain' },
     
 
 
