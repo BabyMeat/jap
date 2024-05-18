@@ -128,6 +128,8 @@ function checkAnswer() {
     if (userAnswer === correctAnswer) {
         nextWord();
         document.getElementById('result').innerText = 'Correct!';
+    } else if (userAnswer === '') { 
+        document.getElementById('result').innerText = 'La réponse est : ' + correctAnswer;
     } else {
         document.getElementById('result').innerText = 'Incorrect, essayez encore!';
     }
