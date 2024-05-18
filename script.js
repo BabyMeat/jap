@@ -126,6 +126,7 @@ function checkAnswer() {
     const userAnswer = document.getElementById('answer').value.toLowerCase();
     const correctAnswer = words[currentWordIndex].french;
     if (userAnswer === correctAnswer) {
+        correctSound.play();
         nextWord();
         document.getElementById('result').innerText = 'Correct!';
     } else if (userAnswer === '') { 
