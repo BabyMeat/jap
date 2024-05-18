@@ -81,6 +81,25 @@ const words = [
     { character: 'ふゆ', french: 'hiver' },
     { character: 'はる', french: 'automne' },
     { character: 'ぱん', french: 'pain' },
+    { character: 'はち', french: 'huit' },
+
+
+    { character: 'まえ', french: 'devant' },
+    { character: 'まいにち', french: 'chaque jour' },
+    { character: 'め', french: 'yeux' },
+    { character: 'みみ', french: 'oreilles' },
+
+    
+    { character: 'とる', french: 'nuit' },
+    { character: 'やすみ', french: 'repos' },
+    { character: 'ゆき', french: 'neige' },
+    { character: 'よく', french: 'souvent' },
+    { character: 'やさい', french: 'légumes' },
+    { character: 'やくそく', french: 'promesse' },
+    { character: 'よむ', french: 'lire' },
+    { character: 'やくそく', french: 'promesse' },
+
+    { character: 'わたし', french: 'je' },
     
 
 
