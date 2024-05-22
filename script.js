@@ -1,106 +1,181 @@
 const words = [
     // HIRAGANA :
+    // A .....................
     { character: 'あき', french: 'printemps' },
     { character: 'あさ', french: 'matin' },
     { character: 'あたま', french: 'tête' },
-    
+    // i
     { character: 'いいえ', french: 'non' },
     { character: 'いえ', french: 'maison' },
     { character: 'いま', french: 'maintenant' },
-    
+    // u
     { character: 'うえ', french: 'haut' },
     { character: 'うしろ', french: 'derrière' },
     { character: 'うた', french: 'chanson' },
     { character: 'うみのひ', french: 'jour de la mer' },
-    
+    // e
     { character: 'えき', french: 'gare' },
-    
+    // o
     { character: 'おしいれ', french: 'armoire' },
     { character: 'おとこ', french: 'homme' },
     { character: 'おまわりさん', french: 'policier' },
     { character: 'おんな', french: 'femme' },
-
-
     
+    // KA .....................
     { character: 'かう', french: 'acheter' },
-    { character: 'き', french: 'arbre' },
-    { character: 'くつ', french: 'chaussure' },
-    { character: 'けさ', french: 'ce matin' },
-
-    { character: 'こえ', french: 'voix' },
-    { character: 'くつした', french: 'chausette' },
-    { character: 'くち', french: 'bouche' },
-    { character: 'かさ', french: 'parapluie' },
-
-    { character: 'きく', french: 'écouter' },
     { character: 'かお', french: 'visage' },
+    { character: 'かさ', french: 'parapluie' },
+    // ki
+    { character: 'き', french: 'arbre' },
+    { character: 'きく', french: 'écouter' },
+    { character: 'きっぷ', french: 'ticket' },
+    { character: 'きゅうきゅうしゃ', french: 'ambulance' },
+    { character: 'きょう', french: 'aujourdhui' },
+    // ku
+    { character: 'くち', french: 'bouche' },
+    { character: 'くつ', french: 'chaussure' },
+    { character: 'くつした', french: 'chausette' },
+    // ke
+    { character: 'けさ', french: 'ce matin' },
+    { character: 'けっきょく', french: 'finalement' },
+    // ko
+    { character: 'こえ', french: 'voix' },
     { character: 'ことし', french: 'cette année' },
     { character: 'このは', french: 'feuille' },
-
-    { character: 'きょう', french: 'aujourdhui' },
-    { character: 'けっきょく', french: 'finalement' },
-    { character: 'きゅうきゅうしゃ', french: 'ambulance' },
-    { character: 'きっぷ', french: 'ticket' },
-
     
-    
-    { character: 'さかな', french: 'aujourdhui' },
-    { character: 'した', french: 'dessous' },
-    { character: 'すこし', french: 'peu' },
-    { character: 'せんせい', french: 'professeur' },
-    { character: 'そら', french: 'ciel' },
-
-    { character: 'そと', french: 'dehors' },
-    { character: 'しかてつ', french: 'métro' },
-    { character: 'すき', french: 'aimer' },
-    { character: 'した', french: 'derrière' },
+    // SA .....................
+    { character: 'さかな', french: 'poisson' },
     { character: 'さき', french: 'avant' },
     { character: 'さら', french: 'assiette' },
+    // shi
+    { character: 'しかてつ', french: 'métro' },
+    { character: 'した', french: 'dessous' },
+    // su
+    { character: 'すき', french: 'aimer' },
+    { character: 'すこし', french: 'peu' },
+    // se
+    { character: 'せんせい', french: 'professeur' },
+    // so
+    { character: 'そら', french: 'ciel' },
+    { character: 'そと', french: 'dehors' },
 
-    
+    // TA .....................
     { character: 'たかい', french: 'cher' },
-    { character: 'ちいさい', french: 'petit' },
-    { character: 'つくえ', french: 'bureau' },
-    { character: 'てんき', french: 'méteo' },
-
-    { character: 'とき', french: 'temps' },
-    { character: 'ちゃい', french: 'thé' },
     { character: 'たち', french: 'pluriel' },
+    // chi
+    { character: 'ちいさい', french: 'petit' },
+    { character: 'ちゃい', french: 'thé' },
+    // tsu
     { character: 'ついたち', french: 'premier soleil du mois' },
+    { character: 'つくえ', french: 'bureau' },
+    // te
+    { character: 'てんき', french: 'méteo' },
+    // to
+    { character: 'とうきょう', french: 'tokyo' },
+    { character: 'とき', french: 'temps' },
     { character: 'とけい', french: 'montre' },
-    { character: 'とうきょう', french: 'Tokyo' },
-
+    { character: 'とる', french: 'nuit' },
     
+    // NA .....................
     { character: 'なつ', french: 'été' },
+    // ni
     { character: 'にんじゃ', french: 'ninja' },
+    // nu
+    // ne
+    // no 
 
-
+    // HA .....................
+    { character: 'はち', french: 'huit' },
+    { character: 'はな', french: 'fleur' },
+    { character: 'はる', french: 'automne' },
+    // hi
     { character: 'ひる', french: 'midi' },
     { character: 'ひるごはん', french: 'déjeuner' },
-    { character: 'はな', french: 'fleur' },
+    // fu 
     { character: 'ふゆ', french: 'hiver' },
-    { character: 'はる', french: 'automne' },
     { character: 'ぱん', french: 'pain' },
-    { character: 'はち', french: 'huit' },
+    // he
+    // ho
 
-
-    { character: 'まえ', french: 'devant' },
+    // MA .....................
     { character: 'まいにち', french: 'chaque jour' },
-    { character: 'め', french: 'yeux' },
+    { character: 'まえ', french: 'devant' },
+    // mi
     { character: 'みみ', french: 'oreilles' },
-
+    // mu 
+    // me
+    { character: 'め', french: 'yeux' },
+    // mo
     
-    { character: 'とる', french: 'nuit' },
-    { character: 'やすみ', french: 'repos' },
-    { character: 'ゆき', french: 'neige' },
-    { character: 'よく', french: 'souvent' },
+    
+
+    // YA .....................
+    { character: 'やくそく', french: 'promesse' },
     { character: 'やさい', french: 'légumes' },
-    { character: 'やくそく', french: 'promesse' },
+    { character: 'やすみ', french: 'repos' },
+    // yu
+    { character: 'ゆき', french: 'neige' },
+    // yo
+    { character: 'よく', french: 'souvent' },
     { character: 'よむ', french: 'lire' },
-    { character: 'やくそく', french: 'promesse' },
-
-    { character: 'わたし', french: 'je' },
     
+    // RA .....................
+    // ri
+    // ru
+    // re
+    // ro
+
+    // WA .....................
+    { character: 'わたし', french: 'je' },
+    //wo
+
+    // N .....................
+
+
+    // KATAKANA :
+    // A .....................
+    // i
+    // u
+    // e 
+    // o
+
+    // KA .....................
+    { character: 'カタカナ', french: 'katakana' },
+    // ki
+    { character: 'ギター', french: 'guitarre' },
+    // ku
+    // ke
+    // ko
+    { character: 'コート', french: 'manteau' },
+    { character: 'コーヒー', french: 'café' },
+
+    // SA .....................
+    // shi
+    // su
+    // se
+    // so
+
+    // TA .....................
+    { character: 'タクシー', french: 'taxi' },
+    //chi
+    // tsu
+    // te
+    // to
+
+    // NA .....................
+    // ni
+    // nu
+    // ne
+    //no
+    { character: 'ノート', french: 'cahier de notes' },
+
+    // HA .....................
+    { character: 'バター', french: 'beurre' },
+    // hi
+    // fu
+    // he
+    { character: 'ベッド', french: 'lit' },
+    // ho
 
 
     // KANJI :
@@ -111,7 +186,6 @@ const words = [
     { character: '川', french: 'rivière' },
     { character: '田', french: 'champ' },
     */
-    // Ajoute autant de mots que tu veux
 ];
 
 let currentWordIndex = 0;
