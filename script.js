@@ -218,4 +218,11 @@ function nextWord() {
 document.addEventListener('DOMContentLoaded', () => {
     currentWordIndex = Math.floor(Math.random() * words.length);
     displayWord();
+    
+    const answerInput = document.getElementById('answer');
+    answerInput.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            checkAnswer();
+        }
+    });
 });
