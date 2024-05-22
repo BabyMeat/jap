@@ -206,6 +206,7 @@ function checkAnswer() {
     } else if (userAnswer === '') { 
         document.getElementById('result').innerText = 'La réponse est : ' + correctAnswer;
     } else {
+        wrongSound.play();
         document.getElementById('result').innerText = 'Incorrect, essayez encore!';
     }
 }
@@ -214,6 +215,8 @@ function nextWord() {
     currentWordIndex = Math.floor(Math.random() * words.length);
     displayWord();
 }
+
+document.add
 
 document.addEventListener('DOMContentLoaded', () => {
     currentWordIndex = Math.floor(Math.random() * words.length);
