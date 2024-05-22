@@ -141,6 +141,7 @@ const words = [
 
     // KA .....................
     { character: 'カタカナ', french: 'katakana' },
+    { character: 'カメラ', french: 'appareil photo' },
     // ki
     { character: 'ギター', french: 'guitarre' },
     // ku
@@ -160,7 +161,9 @@ const words = [
     //chi
     // tsu
     // te
+    { character: 'テレビ', french: 'télé' },
     // to
+    { character: 'トイレ', french: 'toilettes' },
 
     // NA .....................
     // ni
@@ -171,12 +174,28 @@ const words = [
 
     // HA .....................
     { character: 'バター', french: 'beurre' },
+    { character: 'パソコン', french: 'pc' },
     // hi
+    { character: 'ビイル', french: 'bière' },
     // fu
     // he
     { character: 'ベッド', french: 'lit' },
     // ho
+    { character: 'ホテル', french: 'hôtel' },
+    
+    // MA .....................
+    // YA .....................
+    // RA .....................
+    // ri 
+    // ru 
+    // re
+    { character: 'レストラン', french: 'restaurant' },
 
+    // WA .....................
+    { character: 'ワイン', french: 'vin' },
+    // wo
+
+    // N
 
     // KANJI :
     /*
