@@ -1,34 +1,59 @@
+/* WEBSITE STYLE */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 body {
     font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    line-height: 2;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 80vh;
+}
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #777;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.button:hover {
+    background-color: #333;
+}
+
+/* KANA */
+.quiz, .legend {
+    text-align: center;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.legend {
+    max-width: 200px;
+}
+.page {
+    text-align: center;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
 }
 
-.container {
-    margin: 20px;
-    text-align: center;
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.page > * {
+    margin : 20px;
 }
 
-.legend {
-    max-width: 150px;
-    margin: 20px;
-    text-align: center;
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-#quiz {
-    margin-bottom: 20px;
-}
 
 #character {
     font-size: 48px;
@@ -41,14 +66,7 @@ body {
 }
 
 button {
-    margin: 10px;
-    padding: 10px 20px;
+    padding : 10px;
+    margin : 10px;
     font-size: 16px;
-    cursor: pointer;
-}
-
-#result {
-    margin-top: 10px;
-    font-size: 18px;
-    font-weight: bold;
 }

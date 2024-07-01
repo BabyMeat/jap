@@ -7,23 +7,11 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Entraînement Vocabulaire Japonais</h1>
-        <div id="quiz">
-            <p id="character">日</p>
-            <p>traduction française :</p>
-            <input type="text" id="answer" placeholder="Entrez le mot français">
-            <button onclick="checkAnswer()">Vérifier</button>
-        </div>
-        <div id="result"></div>
-        <button onclick="nextWord()">Mot suivant</button>
-        <audio id="correctSound" src="correct.mp3"></audio>
-        <audio id="wrongSound" src="wrong.mp3"></audio>
+    <h1>Bienvenue sur le site d'entrainement du japonais.</h1>
+    <div class="quiz">
+        <h2>Que souhaites-tu entrainer ?</h2>
+        <a href="kana.html" class="button">Kana</a>
+        <a href="kanji.html" class="button">Kanji</a>
     </div>
-    <div class="legend">
-        <h3>Comment utiliser cet outil :</h1>
-        <p>Pour afficher la bonne réponse appuyez sur le bouton vérifier sans entrer de texte.</p>
-    </div>
-    <script src="script.js"></script>
 </body>
 </html>

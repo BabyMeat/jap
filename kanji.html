@@ -3,27 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entraînement Japonais</title>
+    <title>Quiz Kanji</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Entraînement Kanji</h1>
+    <a href="index.html" class="button">Menu principal</a>
+    <div class="quiz">
+        <h1>Quiz Kanji</h1>
         <div id="quiz">
-            <p id="character">日</p>
-            <p>traduction française :</p>
-            <input type="text" id="answer" placeholder="Entrez le mot français">
-            <button onclick="checkAnswer()">Vérifier</button>
+            <div id="question">Quel est la traduction de ce kanji : <span id="kanji"></span></div>
+            <div id="choices">
+                <button class="choice" onclick="checkAnswer(this)"></button>
+                <button class="choice" onclick="checkAnswer(this)"></button>
+                <button class="choice" onclick="checkAnswer(this)"></button>
+                <button class="choice" onclick="checkAnswer(this)"></button>
+            </div>
+            <div id="result"></div>
+            <audio id="correctSound" src="effects/correct.mp3"></audio>
+            <audio id="wrongSound" src="effects/wrong.mp3"></audio>
         </div>
-        <div id="result"></div>
-        <button onclick="nextWord()">Mot suivant</button>
-        <audio id="correctSound" src="correct.mp3"></audio>
-        <audio id="wrongSound" src="wrong.mp3"></audio>
     </div>
-    <div class="legend">
-        <h3>Comment utiliser cet outil :</h1>
-        <p>Pour afficher la bonne réponse appuyez sur le bouton vérifier sans entrer de texte.</p>
-    </div>
-    <script src="script2.js"></script>
+    <script src="scriptKanji.js"></script>
 </body>
 </html>
