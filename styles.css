@@ -1,77 +1,154 @@
-/* WEBSITE STYLE */
-
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body {
+    margin: 0px;
+    padding: 0px;
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    line-height: 2;
-    text-align: center;
+    background-color: white;
+    color: black;
+}
+
+body {
+    padding: 15px;
+}
+
+a {
+    text-decoration: none; /* Supprime la soulignement par défaut */
+}
+
+nav {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    height: 80vh;
+    justify-content: space-between; /* Pour espacer les éléments */
+    align-items: center; /* Pour centrer verticalement les éléments */
+    font-size: 16px; /* Taille de police pour les liens du menu */
+}
+
+.menu {
+    display: flex;
+    justify-content: center; /* Centrer les éléments horizontalement */
+    align-items: center; /* Centrer les éléments verticalement */
+}
+
+.menu > a {
+    width: 70px;
+    display: flex;
+    justify-content: center; /* Centrer le texte horizontalement */
+    align-items: center; /* Centrer le texte verticalement */
+    font-size: 16px; /* Taille du texte */
+    border-radius: 5px; /* Coins arrondis */
+    margin-left: 20px; /* Espacement entre les liens */
+    transition: transform 0.3s ease;
+}
+
+.menu > a:hover {
+    font-weight: bold;
+    transform: scale(1.1); /* Augmenter l'échelle de 10% au survol */
+}
+
+.logo-text {
+    display: flex;
+    justify-content: space-between; /* Pour espacer les éléments */
+    align-items: center; /* Pour centrer verticalement les éléments */
 }
 
 .logo {
     height: 50px;
 }
 
-.button {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    color: white;
-    background-color: #777;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    text-align: center;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-.button:hover {
-    background-color: #333;
+nav > * > .logo {
+    margin-right: 15px;
 }
 
-/* KANA */
-.quiz, .legend {
-    text-align: center;
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-.legend {
-    max-width: 200px;
-}
-.page {
-    text-align: center;
+
+.hero {
+    height: 700px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center; /* Alignement vertical des éléments enfants */
 }
 
-.page > * {
-    margin : 20px;
+.hero > * > h1 {
+    padding-top: 250px;
+}
+
+.hero > .welcome {
+    margin-bottom: 200px;
+}
+
+.hero > a:hover {
+    font-weight: bold; /* Passage en gras au survol */
+}
+
+.hero h1 {
+    margin: 0; /* Supprime les marges par défaut du h1 */
+}
+
+.hero .logo {
+    vertical-align: middle; /* Alignement vertical de l'image */
+}
+
+.redirections {
+    height: 700px; /* Vous pouvez ajuster la hauteur selon vos besoins */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrer les éléments verticalement */
+    align-items: center; /* Centrer les éléments horizontalement */
+    text-align: center; 
+}
+
+.choices {
+    display: flex;
+    gap: 20px; /* Optionnel : pour ajouter de l'espace entre les boutons */
+}
+.choices > a {
+    margin-top: 200px;
+    padding: 20px;
+    flex: 1;
+    width: 100px;
+    background-color: #bbb;
+    display: flex;
+    justify-content: center; /* Centrer le texte horizontalement */
+    align-items: center; /* Centrer le texte verticalement */
+    text-decoration: none; /* Supprimer la décoration du texte */
+    color: black; /* Couleur du texte */
+    font-size: 16px; /* Taille du texte */
+    border-radius: 5px; /* Coins arrondis */
+    transition: transform 0.3s ease;
+}
+
+.choices > a:hover {
+    transform: scale(1.1); /* Augmente l'échelle de 10% au survol */
+    font-weight: bold;
 }
 
 
-#character {
-    font-size: 48px;
-    margin-bottom: 10px;
+/* Smooth scrolling effect */
+html {
+    scroll-behavior: smooth;
 }
 
-#answer {
-    padding: 10px;
-    font-size: 16px;
+
+/* Style Vocab*/
+
+.page {
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centre verticalement les éléments */
+    align-items: center; /* Centre horizontalement les éléments */
+    text-align: center; /* Centre le texte à l'intérieur des éléments */
 }
 
-button {
-    padding : 10px;
-    margin : 10px;
-    font-size: 16px;
+.quiz {
+    width: 500px;
+    background-color: red;
+    height: 500px;
+    display: flex; /* Utilise flexbox pour centrer le contenu */
+    justify-content: center; /* Centre horizontalement le texte */
+    align-items: center; /* Centre verticalement le texte */
+    margin-top: 20px; /* Ajoute un espace entre le titre et le quiz */
+    border-radius: 10px; /* Optionnel : Ajoute des coins arrondis au rectangle */
+}
+
+.quiz > * {
+    background-color: inherit;
 }

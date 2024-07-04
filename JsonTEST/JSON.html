@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz de Mots Japonais</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Quiz de Mots Japonais</h1>
+        <input type="file" id="fileInput" accept=".json" style="display: none;">
+        <div id="dropZone" class="drop-zone">
+            Glissez et déposez votre fichier JSON ici ou cliquez pour le sélectionner.
+        </div>
+        <div id="quiz">
+            <div id="kanji"></div>
+            <div class="choices">
+                <button class="choice" onclick="checkAnswer(this)"></button>
+                <button class="choice" onclick="checkAnswer(this)"></button>
+                <button class="choice" onclick="checkAnswer(this)"></button>
+                <button class="choice" onclick="checkAnswer(this)"></button>
+            </div>
+            <div id="result"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
