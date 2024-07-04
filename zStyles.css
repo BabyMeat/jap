@@ -1,0 +1,57 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, sans-serif;
+    background-color: white;
+    color: black;
+}
+
+body {
+    padding: 15px;
+}
+
+a {
+    text-decoration: none; /* Supprime la soulignement par défaut */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between; /* Pour espacer les éléments */
+    align-items: center; /* Pour centrer verticalement les éléments */
+    font-size: 16px; /* Taille de police pour les liens du menu */
+}
+
+.menu > a {
+    margin-left: 20px;
+}
+
+.logo-text {
+    display: flex;
+    justify-content: space-between; /* Pour espacer les éléments */
+    align-items: center; /* Pour centrer verticalement les éléments */
+}
+
+.logo {
+    height: 50px;
+}
+
+nav > * > .logo {
+    margin-right: 15px;
+}
+
+
+.hero {
+    display: flex;
+    align-items: center; /* Alignement vertical des éléments enfants */
+}
+
+.hero h1 {
+    margin: 0; /* Supprime les marges par défaut du h1 */
+}
+
+.hero .logo {
+    vertical-align: middle; /* Alignement vertical de l'image */
+}
+
+
+
