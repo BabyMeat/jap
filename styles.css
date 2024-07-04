@@ -99,6 +99,7 @@ nav > * > .logo {
     display: flex;
     gap: 20px; /* Optionnel : pour ajouter de l'espace entre les boutons */
 }
+
 .choices > a {
     margin-top: 200px;
     padding: 20px;
@@ -120,17 +121,14 @@ nav > * > .logo {
     font-weight: bold;
 }
 
-
 /* Smooth scrolling effect */
 html {
     scroll-behavior: smooth;
 }
 
-
-/* Style Vocab*/
-
+/* Style Vocab */
 .page {
-    height: 700px;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center; /* Centre verticalement les éléments */
@@ -138,17 +136,49 @@ html {
     text-align: center; /* Centre le texte à l'intérieur des éléments */
 }
 
-.quiz {
-    width: 500px;
-    background-color: red;
-    height: 500px;
-    display: flex; /* Utilise flexbox pour centrer le contenu */
-    justify-content: center; /* Centre horizontalement le texte */
-    align-items: center; /* Centre verticalement le texte */
-    margin-top: 20px; /* Ajoute un espace entre le titre et le quiz */
-    border-radius: 10px; /* Optionnel : Ajoute des coins arrondis au rectangle */
+.group {
+    display: flex; /* Utilise Flexbox pour aligner les éléments horizontalement */
+    justify-content: center; /* Centre les éléments horizontalement */
+    align-items: center; /* Centre les éléments verticalement */
+    gap: 20px; /* Optionnel : Ajoute un espacement entre les éléments */
 }
 
-.quiz > * {
-    background-color: inherit;
+.quiz {
+    width: 300px;
+    height: 250px;
+    text-align: center;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.legend {
+    text-align: center;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 200px;
+}
+
+.page > * {
+    margin: 20px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #777;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.button:hover {
+    background-color: #333;
 }
