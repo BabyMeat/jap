@@ -79,7 +79,7 @@ function getRandomBoolean() {
 }
 
 function loadQuestion() {
-    console.log('CSV V2 : ' + words[0].character + words[1].character);
+    console.log('CSV V2 : ' + words[0].character + words[1].character + words[2].character);
     
     if (words.length === 0) return;
 
