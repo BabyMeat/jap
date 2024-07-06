@@ -53,6 +53,10 @@ function parseCSV(csv, delimiter = ';') {
     const lines = csv.split('\n');
     const result = [];
 
+    for (let i = 0; i < lines.length; i++){
+        console.log('LINES : ' + i + ' ' + lines[i]);
+    }
+
     for (let i = 0; i < lines.length; i++) {
         const values = lines[i].split(delimiter).map(value => value.trim());
         if (values.length > 1) {
