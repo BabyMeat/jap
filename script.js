@@ -80,8 +80,7 @@ function getRandomBoolean() {
 
 function loadQuestion() {
     console.log('CSV V2 : ' + words[0].character + words[1].character + words[2].character);
-    
-    if (words.length === 0) return;
+    if (words.length < 1) return;
 
     // Masquer la zone de drop et le bouton "Démarrer la session prédéfinie"
     document.getElementById('fileInput').classList.add('hidden');
