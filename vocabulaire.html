@@ -24,13 +24,19 @@
         <div class="group">
             <div class="quiz">
                 <h1>Quiz :</h1>
+                <input type="file" id="fileInput" accept=".json" style="display: none;">
+                <div id="dropZone" class="drop-zone">
+                    Déposez un fichier pour personaliser votre session.
+                </div>
+                <button id="downloadJson">Fichier personalisable</button>
+                <button id="startWithPredefinedWords">Démarrer la session prédéfinie</button>
                 <div id="quiz">
                     <div id="question">Quel est la traduction de ce kanji : <span id="kanji"></span></div>
                     <div id="choices">
-                        <button class="button" onclick="checkAnswer(this)"></button>
-                        <button class="button" onclick="checkAnswer(this)"></button>
-                        <button class="button" onclick="checkAnswer(this)"></button>
-                        <button class="button" onclick="checkAnswer(this)"></button>
+                        <button class="button choice" onclick="checkAnswer(this)"></button>
+                        <button class="button choice" onclick="checkAnswer(this)"></button>
+                        <button class="button choice" onclick="checkAnswer(this)"></button>
+                        <button class="button choice" onclick="checkAnswer(this)"></button>
                     </div>
                     <div id="result"></div>
                     <audio id="correctSound" src="effects/correct.mp3"></audio>
@@ -38,10 +44,11 @@
                 </div>
             </div>
             <div class="legend">
-                <h3>Comment utiliser cet outil :</h1>
+                <h3>Comment utiliser cet outil :</h3>
                 <p>Pour afficher la bonne réponse appuyez sur le bouton vérifier sans entrer de texte.</p>
             </div>
         </div>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>

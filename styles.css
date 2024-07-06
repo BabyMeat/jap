@@ -182,3 +182,26 @@ html {
 .button:hover {
     background-color: #333;
 }
+
+/* DROP ZONE */
+
+
+#dropZone {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+#dropZone:hover {
+    border-color: #aaa;
+}
+
+#dropZone.dragging {
+    border-color: #333;
+}
+
+.hidden {
+    display: none;
+}
