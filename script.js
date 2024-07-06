@@ -73,6 +73,11 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
 
+// Random Boolean
+function getRandomBoolean() {
+    return Math.random() < 0.5;
+}
+
 function loadQuestion() {
     if (words.length === 0) return;
 
