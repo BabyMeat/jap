@@ -79,6 +79,7 @@ function getRandomBoolean() {
 }
 
 function loadQuestion() {
+    console.log("CSV : " + words);
     if (words.length === 0) return;
 
     // Masquer la zone de drop et le bouton "Démarrer la session prédéfinie"
