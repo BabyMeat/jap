@@ -116,7 +116,7 @@ function checkAnswer(button) {
 document.getElementById('startWithPredefinedWords').addEventListener('click', startPredefinedSession);
 
 function startPredefinedSession() {
-    fetch('predefinedWords.json')  // Chemin relatif à la racine du site
+    fetch('https://github.com/BabyMeat/jap/blob/main/characters.json')  // Chemin relatif à la racine du site
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
