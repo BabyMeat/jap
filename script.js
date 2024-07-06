@@ -50,25 +50,36 @@ function readFile(file) {
 }
 
 function parseCSV(csv, delimiter = ';') {
-    const lines = csv.split('\n');
-    const result = [];
+    // Diviser le CSV en lignes
+    const lines = csv.trim().split('\n');
 
-    for (let i = 0; i < lines.length; i++){
-        console.log('LINES : ' + i + ' ' + lines[i]);
-    }
+    // Vérifier si le CSV est vide
+    if (lines.length === 0) return [];
 
-    for (let i = 0; i < lines.length; i++) {
-        const values = lines[i].split(delimiter).map(value => value.trim());
-        if (values.length > 1) {
-            const entry = {
-                character: values[0],  // Modifier en fonction de votre CSV
-                french: values[1],     // Modifier en fonction de votre CSV
-                kana: values[2]        // Modifier en fonction de votre CSV
-                // Ajoutez d'autres champs si nécessaire
-            };
-            result.push(entry);
+    // Récupérer les en-têtes à partir de la première ligne
+    const headers = lines[0].split(delimiter).map(header => header.trim());
+
+    // Transformer chaque ligne en un objet basé sur les en-têtes
+    const result = lines.slice(1).reduce((acc, line) => {
+        if (line.trim() === '') return acc; // Ignorer les lignes vides
+
+        const values = line.split(delimiter).map(value => value.trim());
+        
+        if (values.length === headers.length) {
+            const entry = headers.reduce((obj, header, index) => {
+                obj[header] = values[index];
+                return obj;
+            }, {});
+
+            acc.push(entry);
+        } else {
+            console.error(`Mauvaise formatation à la ligne : ${line}`);
         }
-    }
+
+        return acc;
+    }, []);
+
+    console.log('PARSE : ' + result);
 
     return result;
 }
