@@ -51,20 +51,25 @@ function readFile(file) {
 
 function parseCSV(csv, delimiter = ';') {
     // Diviser le CSV en lignes
-    const lines = csv.trim().split('\n');
+    const lines = csv.split('\n');
 
-    // Vérifier si le CSV est vide
-    if (lines.length === 0) return [];
+    // Filtrer les lignes de commentaires et les lignes vides
+    const filteredLines = lines.filter(line => {
+        const trimmedLine = line.trim();
+        return trimmedLine && !trimmedLine.startsWith('#');
+    });
 
-    // Récupérer les en-têtes à partir de la première ligne
-    const headers = lines[0].split(delimiter).map(header => header.trim());
+    // Vérifier si le CSV est vide après filtrage
+    if (filteredLines.length === 0) return [];
+
+    // Récupérer les en-têtes à partir de la première ligne utile
+    const headers = filteredLines[0].split(delimiter).map(header => header.trim());
 
     // Transformer chaque ligne en un objet basé sur les en-têtes
-    const result = lines.slice(1).reduce((acc, line) => {
-        if (line.trim() === '') return acc; // Ignorer les lignes vides
-
+    const result = filteredLines.slice(1).reduce((acc, line) => {
         const values = line.split(delimiter).map(value => value.trim());
         
+        // S'assurer que chaque ligne de données a le bon nombre de colonnes
         if (values.length === headers.length) {
             const entry = headers.reduce((obj, header, index) => {
                 obj[header] = values[index];
@@ -75,12 +80,9 @@ function parseCSV(csv, delimiter = ';') {
         } else {
             console.error(`Mauvaise formatation à la ligne : ${line}`);
         }
-
         return acc;
     }, []);
-
     console.log('PARSE : ' + result);
-
     return result;
 }
 
