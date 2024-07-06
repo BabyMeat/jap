@@ -79,13 +79,14 @@ function getRandomBoolean() {
 }
 
 function loadQuestion() {
-    const test = '';
+    let test = '';
     for (let i = 0; i < words.length; i++) {
-        if (values.length > 1) {
-            test = test + words[i].character + words[i].french + words[i].values
+        if (words[i].character.length > 1 || words[i].french.length > 1 || words[i].kana.length > 1) {
+            test = test + words[i].character + words[i].french + words[i].kana;
         }
     }
-    console.log('CSV : ' + test)
+    console.log('CSV : ' + test);
+    
     if (words.length === 0) return;
 
     // Masquer la zone de drop et le bouton "Démarrer la session prédéfinie"
