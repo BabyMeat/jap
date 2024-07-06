@@ -40,10 +40,7 @@ function readFile(file) {
     const reader = new FileReader();
     reader.onload = function(e) {
         try {
-            words = parseCSV(e.target.result);
-            dropZone.classList.add('hidden');  // Masquer la zone de drop
-            document.getElementById('startWithPredefinedWords').classList.add('hidden'); // Masquer le bouton
-            document.getElementById('quiz').classList.remove('hidden'); // Afficher la section quiz
+            words = parseCSV(e.target.result, ';'); // Utilisation du délimiteur ;
             loadQuestion();
         } catch (error) {
             alert('Erreur lors de la lecture du fichier CSV.');
@@ -52,18 +49,19 @@ function readFile(file) {
     reader.readAsText(file);
 }
 
-function parseCSV(csv) {
+function parseCSV(csv, delimiter = ';') {
     const lines = csv.split('\n');
-    const headers = lines[0].split(',').map(header => header.trim()); // Première ligne comme en-têtes
     const result = [];
 
-    for (let i = 1; i < lines.length; i++) {
-        const values = lines[i].split(',');
-        if (values.length === headers.length) {
-            const entry = {};
-            for (let j = 0; j < headers.length; j++) {
-                entry[headers[j]] = values[j].trim();
-            }
+    for (let i = 0; i < lines.length; i++) {
+        const values = lines[i].split(delimiter).map(value => value.trim());
+        if (values.length > 1) {
+            const entry = {
+                character: values[0],  // Modifier en fonction de votre CSV
+                french: values[1],     // Modifier en fonction de votre CSV
+                kana: values[2]        // Modifier en fonction de votre CSV
+                // Ajoutez d'autres champs si nécessaire
+            };
             result.push(entry);
         }
     }
@@ -78,21 +76,38 @@ function getRandomInt(max) {
 function loadQuestion() {
     if (words.length === 0) return;
 
+    // Masquer la zone de drop et le bouton "Démarrer la session prédéfinie"
+    document.getElementById('fileInput').classList.add('hidden');
+    document.getElementById('dropZone').classList.add('hidden');
+    document.getElementById('startWithPredefinedWords').classList.add('hidden');
+    document.getElementById('quiz').classList.remove('hidden');  // Afficher le quiz
+
+    const questionType = getRandomBoolean();
     const questionIndex = getRandomInt(words.length);
     currentQuestion = words[questionIndex];
+
+    if (questionType) {
+        correctAnswer = currentQuestion.french;
+    } else {
+        correctAnswer = currentQuestion.kana;
+    }
 
     const kanjiElement = document.getElementById('kanji');
     kanjiElement.textContent = currentQuestion.character;
 
     const choices = new Set();
-    const filteredWords = words.filter(word => word.french !== currentQuestion.french && word.kana !== currentQuestion.kana);
+    const filteredWords = words.filter(word => word.french !== correctAnswer && word.kana !== correctAnswer);
 
     while (choices.size < 3) {
         const choiceIndex = getRandomInt(filteredWords.length);
-        choices.add(filteredWords[choiceIndex].french);
+        if (questionType) {
+            choices.add(filteredWords[choiceIndex].french);
+        } else {
+            choices.add(filteredWords[choiceIndex].kana);
+        }
     }
 
-    choices.add(currentQuestion.french);
+    choices.add(correctAnswer);
     const choicesArray = Array.from(choices);
     choicesArray.sort(() => Math.random() - 0.5);
 
@@ -128,10 +143,7 @@ function startPredefinedSession() {
             return response.text();
         })
         .then(data => {
-            words = parseCSV(data);
-            dropZone.classList.add('hidden');  // Masquer la zone de drop
-            document.getElementById('startWithPredefinedWords').classList.add('hidden'); // Masquer le bouton
-            document.getElementById('quiz').classList.remove('hidden'); // Afficher la section quiz
+            words = parseCSV(data, ';'); // Utilisation du délimiteur ;
             console.log("Session prédéfinie démarrée avec succès.");
             loadQuestion();
         })
