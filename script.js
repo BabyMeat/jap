@@ -80,6 +80,7 @@ function getRandomBoolean() {
 
 function loadQuestion() {
     console.log('CSV V2 : ' + words[0].character + words[1].character + words[2].character);
+    console.log(words.length);
     if (words.length < 1) return;
     console.log('passe');
 
