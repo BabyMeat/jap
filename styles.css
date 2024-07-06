@@ -57,7 +57,6 @@ nav > * > .logo {
     margin-right: 15px;
 }
 
-
 .hero {
     height: 700px;
     display: flex;
@@ -179,12 +178,12 @@ html {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+
 .button:hover {
     background-color: #333;
 }
 
 /* DROP ZONE */
-
 
 #dropZone {
     border: 2px dashed #ccc;

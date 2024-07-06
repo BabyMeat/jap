@@ -26,12 +26,12 @@
                 <h1>Quiz :</h1>
                 <input type="file" id="fileInput" accept=".json" style="display: none;">
                 <div id="dropZone" class="drop-zone">
-                    Déposez un fichier pour personaliser votre session.
+                    Déposez un fichier pour personnaliser votre session.
                 </div>
-                <button id="downloadJson">Fichier personalisable</button>
+                <button id="downloadJson">Fichier personnalisable</button>
                 <button id="startWithPredefinedWords">Démarrer la session prédéfinie</button>
-                <div id="quiz">
-                    <div id="question">Quel est la traduction de ce kanji : <span id="kanji"></span></div>
+                <div id="quiz" class="hidden">
+                    <div id="question">Quelle est la traduction de ce kanji : <span id="kanji"></span></div>
                     <div id="choices">
                         <button class="button choice" onclick="checkAnswer(this)"></button>
                         <button class="button choice" onclick="checkAnswer(this)"></button>

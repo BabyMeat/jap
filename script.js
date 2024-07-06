@@ -1,4 +1,3 @@
-// script.js
 let words = [];
 let currentQuestion;
 let correctAnswer;
@@ -43,6 +42,8 @@ function readFile(file) {
         try {
             words = JSON.parse(e.target.result);
             dropZone.classList.add('hidden');  // Masquer la zone de drop
+            document.getElementById('startWithPredefinedWords').classList.add('hidden'); // Masquer le bouton
+            document.getElementById('quiz').classList.remove('hidden'); // Afficher le quiz
             loadQuestion();
         } catch (error) {
             alert('Erreur lors de la lecture du fichier JSON.');
@@ -111,8 +112,6 @@ function checkAnswer(button) {
     }
 }
 
-
-// Ajoutez cet événement pour le bouton de démarrage avec les mots prédéfinis
 document.getElementById('startWithPredefinedWords').addEventListener('click', startPredefinedSession);
 
 function startPredefinedSession() {
@@ -125,9 +124,9 @@ function startPredefinedSession() {
         })
         .then(data => {
             words = data;
-            document.getElementById('downloadJson').classList.add('hidden');
-            document.getElementById('dropZone').classList.add('hidden');  // Masquer la zone de drop
+            dropZone.classList.add('hidden');  // Masquer la zone de drop
             document.getElementById('startWithPredefinedWords').classList.add('hidden'); // Masquer le bouton
+            document.getElementById('quiz').classList.remove('hidden'); // Afficher le quiz
             console.log("Session prédéfinie démarrée avec succès.");
             loadQuestion();
         })
@@ -135,4 +134,3 @@ function startPredefinedSession() {
             console.error('Erreur lors de la lecture du fichier JSON prédéfini:', error);
         });
 }
-
