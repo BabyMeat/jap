@@ -59,6 +59,10 @@ function parseCSV(csv, delimiter = ';') {
         return trimmedLine && !trimmedLine.startsWith('#');
     });
 
+    for(let i=0;i<filteredLines.length;i++){
+        console.log('Parse line : ' + i + ' ' + filteredLines[i])
+    }
+
     // Vérifier si le CSV est vide après filtrage
     if (filteredLines.length === 0) return [];
 
@@ -82,7 +86,6 @@ function parseCSV(csv, delimiter = ';') {
         }
         return acc;
     }, []);
-    console.log('PARSE : ' + result);
     return result;
 }
 
