@@ -125,6 +125,7 @@ function startPredefinedSession() {
         })
         .then(data => {
             words = data;
+            document.getElementById('downloadJson').classList.add('hidden');
             document.getElementById('dropZone').classList.add('hidden');  // Masquer la zone de drop
             document.getElementById('startWithPredefinedWords').classList.add('hidden'); // Masquer le bouton
             console.log("Session prédéfinie démarrée avec succès.");
