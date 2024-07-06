@@ -79,13 +79,7 @@ function getRandomBoolean() {
 }
 
 function loadQuestion() {
-    let test = '';
-    for (let i = 0; i < words.length; i++) {
-        if (words[i].character.length > 1 || words[i].french.length > 1 || words[i].kana.length > 1) {
-            test = test + words[i].character + words[i].french + words[i].kana;
-        }
-    }
-    console.log('CSV : ' + test);
+    console.log('CSV : ' + words[0].character + words[1].character);
     
     if (words.length === 0) return;
 
