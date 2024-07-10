@@ -31,8 +31,8 @@ quizPage.style.display = 'none';
 
 // PRECHARGEMENT DU FICHIER CSV PAR DEFAUT : ............................
 function preLoadCSV() {
-    console.log('PRELOAD GPT VERSION');
-    fetch(filepath)
+    console.log('PRELOAD GPT VERSION 2');
+    fetch('https://babymeat.github.io/jap/kanji.csv')
         .then(response => response.text())
         .then(data => {
             tableau = parseCSV(filterDATA(data));
