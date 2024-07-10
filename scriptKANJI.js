@@ -1,9 +1,16 @@
+// AFFICHAGE DE VERSION 
+function showVersion() {
+    console.log('Version : 2');
+}
+window.onload = showVersion;
+
 // VARIABLES*
 const delimiter = ",";
 const filepath = 'kanji.csv';
 const structure = ['kanji', 'kana', 'french', 'emoji'];
 const questionTYPES = ['KanjiToKana','KanaToKanji','KanjiToFrench','KanjiToEmoji','FrenchToKanji'];
-var tableau = [];
+var tableauBASE = [];
+var tableauCUSTOM = [];
 var currentQuestion = '';
 var correctAnswer = "";
 var emoji = "";
@@ -42,8 +49,8 @@ function preLoadBaseCSV() {
         .then(data => {
             let filteredBASEDATA = filterDATA(data);
             let parsedBASEDATA = parseCSV(filteredBASEDATA, ',', structure);
-            tableau = parsedBASEDATA;
-            console.log('PRELOAD SUCCEDED : ', JSON.stringify(tableau, null, 2));
+            tableauBASE = parsedBASEDATA;
+            console.log('PRELOAD SUCCEDED : ', JSON.stringify(tableauBASE, null, 2));
         })
         .catch(error => {
             console.error('Erreur lors de la lecture du fichier CSV prédéfini:', error);
@@ -81,7 +88,7 @@ function parseCSV(data, delimiter, structure) {
     return result;
 }
 function loadFile(files) {
-    tableau = [];
+    tableauCUSTOM = [];
     if (files.length === 1) {
         const file = files[0];
         if (file.type === 'text/csv' || file.name.endsWith('.csv')) {
@@ -94,8 +101,8 @@ function loadFile(files) {
                         throw new Error('Le fichier est vide.');
                     }
                     // Parsing du CSV dans un tableau d'objets
-                    tableau = parseCSV(filteredData, delimiter, structure);
-                    if (tableau.length === 0) {
+                    tableauCUSTOM = parseCSV(filteredData, delimiter, structure);
+                    if (tableauCUSTOM.length === 0) {
                         throw new Error('Aucune donnée valide trouvée dans le fichier.');
                     }
                     // Succès
@@ -103,7 +110,7 @@ function loadFile(files) {
                     errorMessage.classList.add('success-message');
                     errorMessage.textContent = "Uploadé avec succès";
                     // Affichage dans l'élément HTML output
-                    output.textContent = JSON.stringify(tableau, null, 2);
+                    output.textContent = JSON.stringify(tableauCUSTOM, null, 2);
                     //console.log('Contenu du fichier:', tableau);
                     // MASQUAGE ZONE INPUT 
                     dropZone.classList.add('hidden');
@@ -148,8 +155,8 @@ function randomInt(max) {
 function randomQUIZ(){
     return questionTYPES[Math.floor(Math.random() * questionTYPES.length)];
 }
-function randomQuestion() {
-    return tableau[randomInt(tableau.length)]
+function randomQuestion(tab) {
+    return tab[randomInt(tab.length)]
 }
 function getKanji(line) {
     return line.kanji;
@@ -165,12 +172,12 @@ function getEmoji(line) {
 }
 
 // LOGIQUE DU QUIZ : ...............................................
-function newQuestion() {
+function newQuestion(tab) {
     question.textContent = "";
     answerCHECK.textContent = "";
     emoji = "";
     const quiz = randomQUIZ();
-    const questionRANDOM = randomQuestion();
+    const questionRANDOM = randomQuestion(tab);
     if(quiz == 'KanjiToKana'){
         currentQuestion = getKanji(questionRANDOM);
         correctAnswer = getKana(questionRANDOM);
@@ -199,7 +206,7 @@ function newQuestion() {
     }
     //console.log('LOAD : ', currentQuestion, correctAnswer);
     showQuestion(quiz);
-    generateRandomResponses(quiz);
+    generateRandomResponses(quiz, tab);
 } 
 
 function showQuestion(type) {
@@ -223,30 +230,30 @@ function showQuestion(type) {
     //console.log('SYMBOL TEXT CONTEN : ', symbol.textContent);
 }
 
-function generateRandomResponses(type) {
+function generateRandomResponses(type, tab) {
     const choices = new Set();
     choices.add(correctAnswer);
     //console.log('CHOICES LENGTH : ' + choices.size);
     while(choices.size < 4) {
         if(type == 'KanjiToKana'){
             //console.log('EQUALITY CHECK');
-            choices.add(getKana(randomQuestion()));
+            choices.add(getKana(randomQuestion(tab)));
         }
         else if(type == 'KanaToKanji'){
             //console.log('EQUALITY CHECK');
-            choices.add(getKanji(randomQuestion()));
+            choices.add(getKanji(randomQuestion(tab)));
         }
         else if(type == 'KanjiToFrench'){
             //console.log('EQUALITY CHECK');
-            choices.add(getFrench(randomQuestion()));
+            choices.add(getFrench(randomQuestion(tab)));
         }
         else if(type == 'KanjiToEmoji'){
             //console.log('EQUALITY CHECK');
-            choices.add(getEmoji(randomQuestion()));
+            choices.add(getEmoji(randomQuestion(tab)));
         }
         else if(type == 'FrenchToKanji'){
             //console.log('EQUALITY CHECK');
-            choices.add(getKanji(randomQuestion()));
+            choices.add(getKanji(randomQuestion(tab)));
         }
         else {
             //console.log('Infinite Tsukuyomi');
@@ -271,22 +278,38 @@ function startQuiz() {
     score.textContent = scoreInt.toString();
     uploadPage.style.display = 'none';
     quizPage.style.display = 'flex';
-    newQuestion();
+    if(tableauCUSTOM.length > 0){
+        newQuestion(tableauCUSTOM);
+    }
+    else {
+        newQuestion(tableauBASE);
+    }
 }
 
 // CHECK ANWSER CALL
 function checkAnswer(button) {
     const selectedAnswer = button.textContent;
+    const isempty = (tableauCUSTOM.length>0);
     if (selectedAnswer === correctAnswer) {
         answerCHECK.textContent = 'Correct!';
         scoreInt = scoreInt + positivePOINTS;
         score.textContent = scoreInt.toString();
-        setTimeout(newQuestion, 500);
+        if(isempty){
+            setTimeout(newQuestion(tableauCUSTOM), 500);
+        }
+        else {
+            setTimeout(newQuestion(tableauBASE), 500);
+        }
     } else {
         answerCHECK.textContent = `Incorrect, essayez encore!`;
         scoreInt = scoreInt + negativePOINTS;
         score.textContent = scoreInt.toString();
-        setTimeout(newQuestion, 500);
+        if(isempty){
+            setTimeout(newQuestion(tableauCUSTOM), 500);
+        }
+        else {
+            setTimeout(newQuestion(tableauBASE), 500);
+        }
     }
     // Possibilité de arreter le script
     /*
