@@ -30,31 +30,16 @@ quizPage.style.display = 'none';
 
 
 // PRECHARGEMENT DU FICHIER CSV PAR DEFAUT : ............................
-
-document.addEventListener("DOMContentLoaded", function() {
-    function loadBASE() {
-        console.log('CHARGE DATA V2');
-        fetch(filepath)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.text();
-            })
-            .then(data => {
-                // Filtrage des données
-                //data = filterDATA(data);
-                // Parsage du tableau 
-                tableau = parseCSV(filterDATA(data), delimiter);
-                console.log("Session prédéfinie démarrée avec succès.");
-            })
-            .catch(error => {
-                console.error('Erreur lors de la lecture du fichier CSV prédéfini:', error);
-            });
-    }
-    // Appeler la fonction
-    loadBASE();
-});
+function preLoadCSV() {
+    fetch(filepath)
+        .then(response => response.text())
+        .then(data => {
+            tableau = parseCSV(filterDATA(data));
+            console.log('PRELAOD SUCCEDED');
+        })
+        .catch(error => console.error('Error fetching the CSV file:', error));
+}
+window.onload = preLoadCSV;
 
 // FONCTIONS GLOBALES : ..............................................
 function filterDATA(data) {
