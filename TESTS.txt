@@ -1,0 +1,32 @@
+// START REGULAR :
+document.getElementById('startWithPredefinedWords').addEventListener('click', startPredefinedSession);
+
+function startPredefinedSession() {
+    fetch('kanji.csv')
+        .then(response => response.text())
+        .then(data => {
+            words = parseCSV(data, ';');
+            //loadQuestion();
+        })
+        .catch(error => {
+            console.error('Erreur lors de la lecture du fichier CSV prédéfini:', error);
+        });
+}
+
+function startPredefinedSession() {
+    fetch('kanji.csv')  // Assurez-vous que le chemin est correct
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text();
+        })
+        .then(data => {
+            words = parseCSV(data, ';'); // Utilisation du délimiteur ;
+            console.log("Session prédéfinie démarrée avec succès.");
+            loadQuestion();
+        })
+        .catch(error => {
+            console.error('Erreur lors de la lecture du fichier CSV prédéfini:', error);
+        });
+}
