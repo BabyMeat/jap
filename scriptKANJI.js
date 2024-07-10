@@ -31,6 +31,7 @@ quizPage.style.display = 'none';
 
 // PRECHARGEMENT DU FICHIER CSV PAR DEFAUT : ............................
 function preLoadCSV() {
+    console.log('PRELOAD GPT VERSION');
     fetch(filepath)
         .then(response => response.text())
         .then(data => {
