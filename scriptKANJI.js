@@ -33,6 +33,7 @@ quizPage.style.display = 'none';
 
 document.addEventListener("DOMContentLoaded", function() {
     function loadBASE() {
+        console.log('CHARGE DATA V2');
         fetch(filepath)
             .then(response => {
                 if (!response.ok) {
