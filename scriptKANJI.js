@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 // Filtrage des données
                 data = filterDATA(data);
                 // Parsage du tableau 
-                tableau = parseCSV(data, delimiter);
+                tableau = parseCSV(filterDATA(data), delimiter);
                 console.log("Session prédéfinie démarrée avec succès.");
             })
             .catch(error => {
