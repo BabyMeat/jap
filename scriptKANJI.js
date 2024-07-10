@@ -30,17 +30,26 @@ quizPage.style.display = 'none';
 
 
 // PRECHARGEMENT DU FICHIER CSV PAR DEFAUT : ............................
-function preLoadCSV() {
-    console.log('PRELOAD GPT VERSION 2');
-    fetch('https://babymeat.github.io/jap/kanji.csv')
-        .then(response => response.text())
-        .then(data => {
-            tableau = parseCSV(filterDATA(data));
-            console.log('PRELAOD SUCCEDED');
+function preLoadBaseCSV() {
+    console.log('PRELOAD TEST 3');
+    fetch('kanji.csv')  // Assurez-vous que le chemin est correct
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text();
         })
-        .catch(error => console.error('Error fetching the CSV file:', error));
+        .then(data => {
+            let filteredBASEDATA = filterDATA(data);
+            let parsedBASEDATA = parseCSV(filteredBASEDATA, ',', structure);
+            tableau = parsedBASEDATA;
+            console.log('PRELOAD SUCCEDED : ', JSON.stringify(tableau, null, 2));
+        })
+        .catch(error => {
+            console.error('Erreur lors de la lecture du fichier CSV prédéfini:', error);
+        });
 }
-window.onload = preLoadCSV;
+window.onload = preLoadBaseCSV;
 
 // FONCTIONS GLOBALES : ..............................................
 function filterDATA(data) {
