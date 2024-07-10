@@ -30,10 +30,13 @@
             <input type="file" id="file-input" accept=".csv" style="display: none;">
             <div id="error-message" class="error-message"></div>
             <div id="output" class="output"></div>
-            <a href="kanji.csv" download="kanji.csv">
-                <button class="download" id="download">Download CSV</button>
-            </a>
-            <button id="startQuizButton" class="button">Commencer le Quiz</button>
+            
+            <div class="upload-buttons">
+                <a href="kanji.csv" download="kanji.csv">
+                    <button class="dl-button">Customiser son CSV</button>
+                </a>
+                <button id="startQuizButton" class="button">Commencer le Quiz</button>
+            </div>
         </div>    
     </div>
     <div id="QUIZ" class="page">
