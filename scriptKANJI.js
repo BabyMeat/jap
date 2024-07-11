@@ -1,6 +1,9 @@
-// AFFICHAGE DE VERSION 
+// AFFICHAGE DE VERSION + PRELOAD
 function showVersion() {
-    console.log('Version : 2');
+    // affichage
+    console.log('Débug conflit tableau Version : 3');
+    // preload
+    preLoadBaseCSV();
 }
 window.onload = showVersion;
 
@@ -9,8 +12,7 @@ const delimiter = ",";
 const filepath = 'kanji.csv';
 const structure = ['kanji', 'kana', 'french', 'emoji'];
 const questionTYPES = ['KanjiToKana','KanaToKanji','KanjiToFrench','KanjiToEmoji','FrenchToKanji'];
-var tableauBASE = [];
-var tableauCUSTOM = [];
+var tableau = [];
 var currentQuestion = '';
 var correctAnswer = "";
 var emoji = "";
@@ -49,14 +51,13 @@ function preLoadBaseCSV() {
         .then(data => {
             let filteredBASEDATA = filterDATA(data);
             let parsedBASEDATA = parseCSV(filteredBASEDATA, ',', structure);
-            tableauBASE = parsedBASEDATA;
-            console.log('PRELOAD SUCCEDED : ', JSON.stringify(tableauBASE, null, 2));
+            tableau = parsedBASEDATA;
+            console.log('PRELOAD SUCCEDED : ', JSON.stringify(tableau, null, 2));
         })
         .catch(error => {
             console.error('Erreur lors de la lecture du fichier CSV prédéfini:', error);
         });
 }
-window.onload = preLoadBaseCSV;
 
 // FONCTIONS GLOBALES : ..............................................
 function filterDATA(data) {
@@ -88,7 +89,7 @@ function parseCSV(data, delimiter, structure) {
     return result;
 }
 function loadFile(files) {
-    tableauCUSTOM = [];
+    tableau = [];
     if (files.length === 1) {
         const file = files[0];
         if (file.type === 'text/csv' || file.name.endsWith('.csv')) {
@@ -101,8 +102,8 @@ function loadFile(files) {
                         throw new Error('Le fichier est vide.');
                     }
                     // Parsing du CSV dans un tableau d'objets
-                    tableauCUSTOM = parseCSV(filteredData, delimiter, structure);
-                    if (tableauCUSTOM.length === 0) {
+                    tableau = parseCSV(filteredData, delimiter, structure);
+                    if (tableau.length === 0) {
                         throw new Error('Aucune donnée valide trouvée dans le fichier.');
                     }
                     // Succès
@@ -110,11 +111,13 @@ function loadFile(files) {
                     errorMessage.classList.add('success-message');
                     errorMessage.textContent = "Uploadé avec succès";
                     // Affichage dans l'élément HTML output
-                    output.textContent = JSON.stringify(tableauCUSTOM, null, 2);
-                    //console.log('Contenu du fichier:', tableau);
+                    output.textContent = JSON.stringify(tableau, null, 2);
                     // MASQUAGE ZONE INPUT 
                     dropZone.classList.add('hidden');
                     fileInput.classList.add('hidden');
+
+                    // AFFICHE TABLEAU :
+                    console.log('Contenu du fichier:', tableau);
                     return;
                 } catch (error) {
                     // Erreur
@@ -155,8 +158,8 @@ function randomInt(max) {
 function randomQUIZ(){
     return questionTYPES[Math.floor(Math.random() * questionTYPES.length)];
 }
-function randomQuestion(tab) {
-    return tab[randomInt(tab.length)]
+function randomQuestion() {
+    return tableau[randomInt(tableau.length)]
 }
 function getKanji(line) {
     return line.kanji;
@@ -172,12 +175,12 @@ function getEmoji(line) {
 }
 
 // LOGIQUE DU QUIZ : ...............................................
-function newQuestion(tab) {
+function newQuestion() {
     question.textContent = "";
     answerCHECK.textContent = "";
     emoji = "";
     const quiz = randomQUIZ();
-    const questionRANDOM = randomQuestion(tab);
+    const questionRANDOM = randomQuestion();
     if(quiz == 'KanjiToKana'){
         currentQuestion = getKanji(questionRANDOM);
         correctAnswer = getKana(questionRANDOM);
@@ -206,7 +209,7 @@ function newQuestion(tab) {
     }
     //console.log('LOAD : ', currentQuestion, correctAnswer);
     showQuestion(quiz);
-    generateRandomResponses(quiz, tab);
+    generateRandomResponses(quiz);
 } 
 
 function showQuestion(type) {
@@ -230,30 +233,30 @@ function showQuestion(type) {
     //console.log('SYMBOL TEXT CONTEN : ', symbol.textContent);
 }
 
-function generateRandomResponses(type, tab) {
+function generateRandomResponses(type) {
     const choices = new Set();
     choices.add(correctAnswer);
     //console.log('CHOICES LENGTH : ' + choices.size);
     while(choices.size < 4) {
         if(type == 'KanjiToKana'){
             //console.log('EQUALITY CHECK');
-            choices.add(getKana(randomQuestion(tab)));
+            choices.add(getKana(randomQuestion()));
         }
         else if(type == 'KanaToKanji'){
             //console.log('EQUALITY CHECK');
-            choices.add(getKanji(randomQuestion(tab)));
+            choices.add(getKanji(randomQuestion()));
         }
         else if(type == 'KanjiToFrench'){
             //console.log('EQUALITY CHECK');
-            choices.add(getFrench(randomQuestion(tab)));
+            choices.add(getFrench(randomQuestion()));
         }
         else if(type == 'KanjiToEmoji'){
             //console.log('EQUALITY CHECK');
-            choices.add(getEmoji(randomQuestion(tab)));
+            choices.add(getEmoji(randomQuestion()));
         }
         else if(type == 'FrenchToKanji'){
             //console.log('EQUALITY CHECK');
-            choices.add(getKanji(randomQuestion(tab)));
+            choices.add(getKanji(randomQuestion()));
         }
         else {
             //console.log('Infinite Tsukuyomi');
@@ -278,38 +281,22 @@ function startQuiz() {
     score.textContent = scoreInt.toString();
     uploadPage.style.display = 'none';
     quizPage.style.display = 'flex';
-    if(tableauCUSTOM.length > 0){
-        newQuestion(tableauCUSTOM);
-    }
-    else {
-        newQuestion(tableauBASE);
-    }
+    newQuestion();
 }
 
 // CHECK ANWSER CALL
 function checkAnswer(button) {
     const selectedAnswer = button.textContent;
-    const isempty = (tableauCUSTOM.length>0);
     if (selectedAnswer === correctAnswer) {
         answerCHECK.textContent = 'Correct!';
         scoreInt = scoreInt + positivePOINTS;
         score.textContent = scoreInt.toString();
-        if(isempty){
-            setTimeout(newQuestion(tableauCUSTOM), 500);
-        }
-        else {
-            setTimeout(newQuestion(tableauBASE), 500);
-        }
+        setTimeout(newQuestion(), 500);
     } else {
         answerCHECK.textContent = `Incorrect, essayez encore!`;
         scoreInt = scoreInt + negativePOINTS;
         score.textContent = scoreInt.toString();
-        if(isempty){
-            setTimeout(newQuestion(tableauCUSTOM), 500);
-        }
-        else {
-            setTimeout(newQuestion(tableauBASE), 500);
-        }
+        setTimeout(newQuestion(), 500);
     }
     // Possibilité de arreter le script
     /*
