@@ -1,7 +1,7 @@
 // AFFICHAGE DE VERSION + PRELOAD
 function showVersion() {
     // affichage
-    console.log('Débug conflit tableau Version : 3');
+    console.log('Débug conflit tableau Version : 4');
     // preload
     preLoadBaseCSV();
 }
@@ -176,6 +176,7 @@ function getEmoji(line) {
 
 // LOGIQUE DU QUIZ : ...............................................
 function newQuestion() {
+    console.log('GENERATING NEW QUESTION ...');
     question.textContent = "";
     answerCHECK.textContent = "";
     emoji = "";
@@ -213,6 +214,7 @@ function newQuestion() {
 } 
 
 function showQuestion(type) {
+    console.log('SHOWING QUESTION ...');
     if(type == 'KanjiToKana'){
         question.textContent = "Comment s'écrtit en Kana le Kanji suivant : ";   
     }
@@ -234,6 +236,7 @@ function showQuestion(type) {
 }
 
 function generateRandomResponses(type) {
+    console.log('GENERATING RESPONSES ...');
     const choices = new Set();
     choices.add(correctAnswer);
     //console.log('CHOICES LENGTH : ' + choices.size);
@@ -277,6 +280,7 @@ function generateRandomResponses(type) {
 }
 
 function startQuiz() {
+    console.log('QUIZ STARTING ...');
     // Affichage du quiz
     score.textContent = scoreInt.toString();
     uploadPage.style.display = 'none';
