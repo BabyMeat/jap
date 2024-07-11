@@ -251,6 +251,10 @@ html {
     border-color: #333;
 }
 
+.show {
+    display: flex;
+}
+
 .hidden {
     display: none;
 }

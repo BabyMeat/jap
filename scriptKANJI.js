@@ -1,12 +1,12 @@
 // AFFICHAGE DE VERSION + PRELOAD
 function windowLoad() {
     // affichage
-    console.log('Débug conflit tableau Version : 5');
+    console.log('Débug show quiz Version : 1');
     // preload
     preLoadBaseCSV();
     // Initialisation de l'affichage
-    uploadPage.style.display = 'flex';
-    quizPage.style.display = 'none';
+    uploadPage.classList.add('show');
+    quizPage.classList.add('hidden');
 }
 window.onload = windowLoad;
 
@@ -280,8 +280,8 @@ function generateRandomResponses(type) {
 
 function showQuiz() {
     console.log('SHOWING QUIZ ...');
-    uploadPage.style.display = 'none';
-    quizPage.style.display = 'flex';
+    uploadPage.classList.add('hidden');
+    quizPage.classList.add('show');
 }
 
 function startQuiz() {
