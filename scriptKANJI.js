@@ -1,16 +1,34 @@
-// AFFICHAGE DE VERSION + PRELOAD
+// Path pour le nom de version
+const versionNamePATH = "ezkVERSION";
+
+// focntion affichage version
+async function printVersion() {
+    try {
+        const response = await fetch(versionNamePATH);
+        if (!response.ok) {
+            throw new Error(`Erreur HTTP ! statut : ${response.status}`);
+        }
+        const text = await response.text();
+        console.log(text);
+    } catch (error) {
+        console.error('Erreur lors de la récupération du fichier texte:', error);
+    }
+}
+
+// INITIALISATION DE LA PAGE : ............................................
 function windowLoad() {
-    // affichage
-    console.log('Débug gpt version : 1');
-    // preload
-    preLoadBaseCSV();
     // Initialisation de l'affichage
     uploadPage.style.display = 'flex';
     quizPage.style.display = 'none';
+    // affichage version
+    printVersion();
+    // preload base
+    preLoadBaseCSV();
 }
 window.onload = windowLoad;
 
-// VARIABLES*
+
+// VARIABLES : ............................................................
 const delimiter = ",";
 const filepath = 'kanji.csv';
 const structure = ['kanji', 'kana', 'french', 'emoji'];
@@ -23,7 +41,7 @@ var scoreInt = 0;
 var positivePOINTS = 10;
 var negativePOINTS = -5;
 
-// ELEMENTS HTML
+// ELEMENTS HTML : ........................................................
 const uploadPage = document.getElementById('UPLOAD');
 const quizPage = document.getElementById('QUIZ');
 const dropZone = document.getElementById('drop-zone');
@@ -102,8 +120,11 @@ function loadFile(files) {
                     }
                     // Parsing du CSV dans un tableau d'objets
                     tableau = parseCSV(filteredData, delimiter, structure);
-                    if (tableau.length === 0) {
+                    if (tableau.length <= 0) {
                         throw new Error('Aucune donnée valide trouvée dans le fichier.');
+                    }
+                    else if (tableau.length <= 3) {
+                        throw new Error('Le fichier ne respecte pas le nombre de données minimum de 4 lignes : ' + tableau.length + ' lignes');
                     }
                     // Succès
                     errorMessage.classList.remove('error-message');
