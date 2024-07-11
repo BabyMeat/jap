@@ -1,11 +1,14 @@
 // AFFICHAGE DE VERSION + PRELOAD
-function showVersion() {
+function windowLoad() {
     // affichage
-    console.log('Débug conflit tableau Version : 4');
+    console.log('Débug conflit tableau Version : 5');
     // preload
     preLoadBaseCSV();
+    // Initialisation de l'affichage
+    uploadPage.style.display = 'flex';
+    quizPage.style.display = 'none';
 }
-window.onload = showVersion;
+window.onload = windowLoad;
 
 // VARIABLES*
 const delimiter = ",";
@@ -32,10 +35,6 @@ const answerCHECK = document.getElementById('answerCHECK');
 const question = document.getElementById('question');
 const symbol = document.getElementById('symbol');
 const score = document.getElementById('score');
-
-// Initialisation de l'affichage
-uploadPage.style.display = 'flex';
-quizPage.style.display = 'none';
 
 
 // PRECHARGEMENT DU FICHIER CSV PAR DEFAUT : ............................
@@ -279,12 +278,17 @@ function generateRandomResponses(type) {
     });
 }
 
+function showQuiz() {
+    console.log('SHOWING QUIZ ...');
+    uploadPage.style.display = 'none';
+    quizPage.style.display = 'flex';
+}
+
 function startQuiz() {
     console.log('QUIZ STARTING ...');
     // Affichage du quiz
     score.textContent = scoreInt.toString();
-    uploadPage.style.display = 'none';
-    quizPage.style.display = 'flex';
+    showQuiz();
     newQuestion();
 }
 
