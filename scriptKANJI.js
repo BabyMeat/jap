@@ -1,7 +1,7 @@
 // AFFICHAGE DE VERSION + PRELOAD
 function windowLoad() {
     // affichage
-    console.log('Débug conflit tableau Version : 5');
+    console.log('Débug gpt version : 1');
     // preload
     preLoadBaseCSV();
     // Initialisation de l'affichage
@@ -299,12 +299,12 @@ function checkAnswer(button) {
         answerCHECK.textContent = 'Correct!';
         scoreInt = scoreInt + positivePOINTS;
         score.textContent = scoreInt.toString();
-        setTimeout(newQuestion(), 500);
+        setTimeout(() => newQuestion(), 500);
     } else {
         answerCHECK.textContent = `Incorrect, essayez encore!`;
         scoreInt = scoreInt + negativePOINTS;
         score.textContent = scoreInt.toString();
-        setTimeout(newQuestion(), 500);
+        setTimeout(() => newQuestion(), 500);
     }
     // Possibilité de arreter le script
     /*
