@@ -117,7 +117,7 @@ function loadFile(files) {
                     fileInput.classList.add('hidden');
 
                     // AFFICHE TABLEAU :
-                    console.log('Contenu du fichier:', tableau);
+                    console.log('Contenu du fichier:', JSON.stringify(tableau, null, 2));
                     return;
                 } catch (error) {
                     // Erreur
