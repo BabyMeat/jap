@@ -68,10 +68,11 @@
 豚,ぶた,Le cochon,🐷
 馬,うま,Le cheval,🐴
 鹿,しか,Le cerf,🦌
-ロバ,驢馬,L'âne,🐴
-# no_kanji,ラクダ,Le dromadaire,🐪
+驢馬,ロバ,L'âne,🐴
 鶏,にわとり,La poule,🐔
 鼠,ねずみ,La souris,🐭
+
+# no_kanji,ラクダ,Le dromadaire,🐪
 # no_kanji,リス,L'écureuil,🐿️
 # no_kanji,はりねずみ,Le hérisson,🦔
 # no_kanji,ハムスター,Le hamster,🐹
@@ -91,7 +92,6 @@
 弟,おとうと,Mon petit frère,👦
 姉,あね,Ma grande soeur,👩‍🦱
 妹,いもうと,Ma petite soeur,👧
-
 
 # 両親,りょうしん,Mes parents,👪
 # 息子,むすこ,Mon fils,👦
