@@ -9,19 +9,26 @@
 # REGLES D'UTILISATION POUR UN BON FONCTIONNEMENT : 
 # .....................................................
 
-# 1. Respectez la structure que voici :
+
+# 1. Vueillez insérer au moins 4 characters différents :
+# 人,ひと,personne,🧑
+# 男,おとこ,homme,👨
+# 女,おんな,femme,👩
+# 子,こ,enfant,🧒
+
+# 2. Respectez la structure que voici :
 # Kanji,Kana,French,Emoji
 
-# 2. N'ajouter aucun espacement entre les éléments :
+# 3. N'ajoutez aucun espacement entre les éléments :
 # Kanji, Kana , French ,Emoji
 
-# 3. Vous pouvez ajouter un espacement entre les kanji :
+# 4. Vous pouvez ajouter un espacement entre les kanji :
 # 人,personne,ひと
 #
 #
 # 男,homme,おとこ
 
-# 4. Vous pouvez ajouter des lignes de commentaires en les commençant par : #
+# 5. Vous pouvez ajouter des lignes de commentaires en les commençant par : #
 
 
 # LISTE KANJI BASE :
@@ -46,3 +53,26 @@
 雪,ゆき,neige,❄️
 金,かね,argent,💰
 刀,かたな,sabre,⚔️
+
+# ANIMAUX :
+
+犬,いぬ,Le chien,🐶
+猫,ねこ,Le chat,🐱
+鳥,とり,L'oiseau,🐦
+魚,さかな,Le poisson,🐟
+狸,たぬき,Le tanuki,🦝
+兎,うさぎ,Le lapin,🐰
+牛,うし,La vache,🐮
+羊,ひつじ,Le mouton,🐑
+山羊,やぎ,La chèvre,🐐
+豚,ぶた,Le cochon,🐷
+馬,うま,Le cheval,🐴
+鹿,しか,Le cerf,🦌
+ロバ,驢馬,L'âne,🐴
+# no_kanji,ラクダ,Le dromadaire,🐪
+鶏,にわとり,La poule,🐔
+鼠,ねずみ,La souris,🐭
+# no_kanji,リス,L'écureuil,🐿️
+# no_kanji,はりねずみ,Le hérisson,🦔
+# no_kanji,ハムスター,Le hamster,🐹
+# no_kanji,フェリシモ,Le furet,🦡
