@@ -58,7 +58,7 @@ const score = document.getElementById('score');
 // PRECHARGEMENT DU FICHIER CSV PAR DEFAUT : ............................
 function preLoadBaseCSV() {
     console.log('PRELOAD TEST 3');
-    fetch('kanji.csv')  // Assurez-vous que le chemin est correct
+    fetch(filepath)  // Assurez-vous que le chemin est correct
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
