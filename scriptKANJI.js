@@ -1,5 +1,5 @@
 // Path pour le nom de version
-const versionNamePATH = "version";
+const versionNamePATH = "meta/version";
 
 // focntion affichage version
 async function printVersion() {

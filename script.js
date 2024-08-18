@@ -1,4 +1,4 @@
-const versionNamePATH = "version";
+const versionNamePATH = "meta/version";
 
 async function printVersion() {
     try {
