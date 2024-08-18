@@ -1,4 +1,4 @@
-const versionNamePATH = "ezkVERSION";
+const versionNamePATH = "version";
 
 async function printVersion() {
     try {

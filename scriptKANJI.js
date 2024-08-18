@@ -1,5 +1,5 @@
 // Path pour le nom de version
-const versionNamePATH = "ezkVERSION";
+const versionNamePATH = "version";
 
 // focntion affichage version
 async function printVersion() {
@@ -30,7 +30,7 @@ window.onload = windowLoad;
 
 // VARIABLES : ............................................................
 const delimiter = ",";
-const filepath = 'kanji.csv';
+const filepath = 'meta/kanji.csv';
 const structure = ['kanji', 'kana', 'french', 'emoji'];
 const questionTYPES = ['KanjiToKana','KanaToKanji','KanjiToFrench','KanjiToEmoji','FrenchToKanji'];
 var tableau = [];
