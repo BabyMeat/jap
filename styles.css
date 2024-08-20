@@ -1,3 +1,7 @@
+/* ------------------ Reset & Base Styles ------------------ */
+
+/* group and legend ??? */
+
 * {
     margin: 0px;
     padding: 0px;
@@ -6,48 +10,36 @@
     color: black;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     padding: 15px;
 }
 
 a {
-    text-decoration: none; /* Supprime la soulignement par défaut */
+    text-decoration: none;
 }
+
+.show {
+    display: flex;
+}
+
+.hidden {
+    display: none;
+}
+
+/* ------------------ Navigation ------------------ */
 
 nav {
     display: flex;
-    justify-content: space-between; /* Pour espacer les éléments */
-    align-items: center; /* Pour centrer verticalement les éléments */
-    font-size: 16px; /* Taille de police pour les liens du menu */
+    justify-content: space-between; 
+    align-items: center; 
+    font-size: 16px;
 }
 
-.menu {
-    display: flex;
-    justify-content: center; /* Centrer les éléments horizontalement */
-    align-items: center; /* Centrer les éléments verticalement */
-}
-
-.menu > a {
-    width: 70px;
-    display: flex;
-    justify-content: center; /* Centrer le texte horizontalement */
-    align-items: center; /* Centrer le texte verticalement */
-    font-size: 16px; /* Taille du texte */
-    border-radius: 5px; /* Coins arrondis */
-    margin-left: 20px; /* Espacement entre les liens */
-    transition: transform 0.3s ease;
-}
-
-.menu > a:hover {
-    font-weight: bold;
-    transform: scale(1.1); /* Augmenter l'échelle de 10% au survol */
-}
-
-.logo-text {
-    display: flex;
-    justify-content: space-between; /* Pour espacer les éléments */
-    align-items: center; /* Pour centrer verticalement les éléments */
-}
+/* ... Logo ... */
 
 .logo {
     height: 50px;
@@ -57,11 +49,43 @@ nav > * > .logo {
     margin-right: 15px;
 }
 
+.logo-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ... Menu ... */
+
+.menu {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+}
+
+.menu > a {
+    width: 70px;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    font-size: 16px; 
+    border-radius: 5px; 
+    margin-left: 20px; 
+    transition: transform 0.3s ease;
+}
+
+.menu > a:hover {
+    font-weight: bold;
+    transform: scale(1.1);
+}
+
+/* ------------------ Hero ------------------ */
+
 .hero {
     height: 700px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Alignement vertical des éléments enfants */
+    align-items: center;
 }
 
 .hero > * > h1 {
@@ -73,30 +97,139 @@ nav > * > .logo {
 }
 
 .hero > a:hover {
-    font-weight: bold; /* Passage en gras au survol */
+    font-weight: bold;
 }
 
 .hero h1 {
-    margin: 0; /* Supprime les marges par défaut du h1 */
+    margin: 0;
 }
 
 .hero .logo {
-    vertical-align: middle; /* Alignement vertical de l'image */
+    vertical-align: middle;
 }
 
+/* ------------------ Redirections ------------------ */
+
 .redirections {
-    height: 700px; /* Vous pouvez ajuster la hauteur selon vos besoins */
+    height: 700px; 
     padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centrer les éléments verticalement */
-    align-items: center; /* Centrer les éléments horizontalement */
+    justify-content: center;
+    align-items: center;
     text-align: center; 
 }
+.cours {
+    text-align: center;
+    margin : 10vw;
+    max-width: 70vw;
+}
+
+.cours h1 {
+    text-align: left;
+}
+
+.text {
+    width: 100%;
+    line-height: 1.4;
+    margin-top: 10px;
+    text-align: justify; 
+    display: inline-block;
+}
+
+.text > p {
+    margin-bottom: 10px;
+}
+
+.illustration > * {
+    font-weight: bold;
+    font-size: 200%;
+    margin: 10px;
+    margin-left: 25%;
+    margin-right: 25%;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.illustration > * > p {
+    font-weight: normal;
+    font-size: small;
+}
+
+.cours {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 800px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.text {
+    text-align: justify;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+}
+
+.cours {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 800px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.text {
+    text-align: justify;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+}
+
+.tableau-syllabaire table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 1.1em;
+}
+
+.tableau-syllabaire th, .tableau-syllabaire td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.tableau-syllabaire th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.tableau-syllabaire td {
+    background-color: #fff;
+}
+
+.tableau-syllabaire tr:nth-child(even) td {
+    background-color: #f9f9f9;
+}
+
+
+/*
+.redirections > .cours {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+*/
+/* ... Choices ... */
 
 .choices {
     display: flex;
-    gap: 20px; /* Optionnel : pour ajouter de l'espace entre les boutons */
+    gap: 20px;
 }
 
 .choices > a {
@@ -106,42 +239,178 @@ nav > * > .logo {
     width: 100px;
     background-color: #bbb;
     display: flex;
-    justify-content: center; /* Centrer le texte horizontalement */
-    align-items: center; /* Centrer le texte verticalement */
-    text-decoration: none; /* Supprimer la décoration du texte */
-    color: black; /* Couleur du texte */
-    font-size: 16px; /* Taille du texte */
-    border-radius: 5px; /* Coins arrondis */
+    justify-content: center; 
+    align-items: center; 
+    text-decoration: none; 
+    color: black; 
+    font-size: 16px; 
+    border-radius: 5px; 
     transition: transform 0.3s ease;
 }
 
 .choices > a:hover {
-    transform: scale(1.1); /* Augmente l'échelle de 10% au survol */
+    transform: scale(1.1);
     font-weight: bold;
 }
 
-/* Smooth scrolling effect */
-html {
-    scroll-behavior: smooth;
+/* ------------------ Cours ------------------ */
+
+.cours {
+    margin-top : 40px;
+    margin-bottom : 40px;
+    text-align: center;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Style Vocab */
+/* ------------------ Button ------------------ */
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #777;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #333;
+}
+
+.upload-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.dl-button {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 12px;
+    color: black;
+    background-color: #ddd;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.dl-button:hover {
+    color: white;
+    background-color: #aaa;
+}
+
+/* ------------------ Page ------------------ */
+
 .page {
     height: 85vh;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centre verticalement les éléments */
-    align-items: center; /* Centre horizontalement les éléments */
-    text-align: center; /* Centre le texte à l'intérieur des éléments */
+    justify-content: center; 
+    align-items: center; 
+    text-align: center;
 }
 
+.page > * {
+    margin: 20px;
+}
+
+/* ... group ??? ... */
+/*
 .group {
-    display: flex; /* Utilise Flexbox pour aligner les éléments horizontalement */
-    justify-content: center; /* Centre les éléments horizontalement */
-    align-items: center; /* Centre les éléments verticalement */
-    gap: 20px; /* Optionnel : Ajoute un espacement entre les éléments */
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 20px;
+}
+*/
+
+/* ------------------ Drop Zone ------------------ */
+
+.drop-zone {
+    margin-top: 20px;
+    padding: 20px;
+    border: 2px dashed #cccccc;
+    border-radius: 10px;
+    background-color: #fafafa;
+    color: #999999;
+    cursor: pointer;
 }
 
+.drop-zone.dragover {
+    border-color: #333333;
+    background-color: #e0e0e0;
+    color: #000000;
+}
+
+#dropZone {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+#dropZone:hover {
+    border-color: #aaa;
+}
+
+#dropZone.dragging {
+    border-color: #333;
+}
+
+/* ------------------ Upload ------------------ */
+
+.upload-container {
+    text-align: center;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ... Output 4 Debugging ... */
+
+.output {
+    display: none;
+}
+
+.output {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    padding: 20px;
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+    background-color: #fafafa;
+    white-space: pre-wrap;
+}
+
+.error-message {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    color: red;
+    font-weight: bold;
+}
+
+.success-message {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    color: green;
+    font-weight: bold;
+}
+
+/* ------------------ Quiz ------------------ */
 
 .quiz {
     min-width: 300px;
@@ -176,6 +445,8 @@ html {
     font-weight: bold;
 }
 
+/* ... legend ??? ... */
+/*
 .legend {
     text-align: center;
     background: #fff;
@@ -184,159 +455,4 @@ html {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     max-width: 200px;
 }
-
-.page > * {
-    margin: 20px;
-}
-
-.button {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    color: white;
-    background-color: #777;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    text-align: center;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.button:hover {
-    background-color: #333;
-}
-
-.upload-buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px; /* Espacement entre les boutons */
-    margin-top: 20px;
-}
-
-.dl-button {
-    display: inline-block;
-    padding: 5px 10px;
-    font-size: 12px;
-    color: black;
-    background-color: #ddd;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    text-align: center;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-.dl-button:hover {
-    color: white;
-    background-color: #aaa;
-}
-
-/* DROP ZONE */
-
-#dropZone {
-    border: 2px dashed #ccc;
-    padding: 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: border-color 0.3s;
-}
-
-#dropZone:hover {
-    border-color: #aaa;
-}
-
-#dropZone.dragging {
-    border-color: #333;
-}
-
-.show {
-    display: flex;
-}
-
-.hidden {
-    display: none;
-}
-
-/* UPLOAD */
-
-.upload-container {
-    text-align: center;
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.drop-zone {
-    margin-top: 20px;
-    padding: 20px;
-    border: 2px dashed #cccccc;
-    border-radius: 10px;
-    background-color: #fafafa;
-    color: #999999;
-}
-
-.drop-zone.dragover {
-    border-color: #333333;
-    background-color: #e0e0e0;
-    color: #000000;
-}
-
-
-/* OUTPUT DISPLAY MASKED */
-.output {
-    display: none;
-}
-.output {
-    margin-top: 20px;
-    margin-bottom: 15px;
-    padding: 20px;
-    border: 1px solid #cccccc;
-    border-radius: 10px;
-    background-color: #fafafa;
-    white-space: pre-wrap; /* Pour conserver les sauts de ligne et les espaces */
-}
-
-.error-message {
-    margin-top: 20px;
-    margin-bottom: 15px;
-    color: red;
-    font-weight: bold;
-}
-
-.success-message {
-    margin-top: 20px;
-    margin-bottom: 15px;
-    color: green;
-    font-weight: bold;
-}
-
-.drop-zone {
-    margin-top: 20px;
-    padding: 20px;
-    border: 2px dashed #cccccc;
-    border-radius: 10px;
-    background-color: #fafafa;
-    color: #999999;
-    cursor: pointer; /* Ajoutez le curseur pointeur pour indiquer que la zone est cliquable */
-}
-
-.drop-zone.dragover {
-    border-color: #333333;
-    background-color: #e0e0e0;
-    color: #000000;
-}
-
-.hidden {
-    display: none;
-}
-
-.page {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
+*/
